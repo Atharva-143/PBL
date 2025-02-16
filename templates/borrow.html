@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow a Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc; /* Light background color */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.95); /* White with 95% opacity */
+            flex-grow: 1;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2C3E50;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        input[type="email"]:focus,
+        input[type="number"]:focus {
+            border-color: #3498db; /* Blue border on focus */
+            outline: none;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px; /* Ensure some space between buttons */
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .borrow-btn {
+            background-color: #3498db; /* Blue */
+        }
+
+        .back-btn {
+            background-color: #9b59b6; /* Purple */
+            width: auto; /* Auto width for back button */
+            margin-top: 20px; /* Separate from Borrow button */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #34495E;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-group {
+                text-align: center;
+            }
+
+            .btn {
+                font-size: 1em;
+                padding: 12px;
+                width: 100%; /* Ensure the buttons take up full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Borrow a Book</h1>
+        <form method="POST" class="borrow-form">
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="book_id">Book ID:</label>
+                <input type="number" id="book_id" name="book_id" required placeholder="Enter book ID">
+            </div>
+            <div class="form-group">
+                <label for="days">Borrowing Period (in days):</label>
+                <input type="number" id="days" name="days" required placeholder="Enter borrowing period">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn borrow-btn">Borrow</button>
+            </div>
+        </form>
+        <!-- Updated Back to Home Button with margin adjustment -->
+        <a href="{{ url_for('index') }}" class="btn back-btn">Back to Home</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Your Library - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
