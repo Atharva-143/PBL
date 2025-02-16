@@ -72,7 +72,7 @@ borrowed_books = {}
 
 # Email configuration
 EMAIL_ADDRESS = "bagwanasad36@gmail.com"
-EMAIL_PASSWORD = "Ashu@ali3105"
+EMAIL_PASSWORD = "ABC"
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
